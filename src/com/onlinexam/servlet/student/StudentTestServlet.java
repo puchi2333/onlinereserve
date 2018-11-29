@@ -22,6 +22,13 @@ import com.onlinexam.service.teacher.QuestionService;
 import com.onlinexam.service.teacher.TestService;
 import com.onlinexam.util.ToolUtil;
 
+
+
+//  Test -- 菜单
+// Course -- 菜系
+// paper -- 订单
+// class -- 用户VIP分类
+
 @WebServlet(value="/studentTest")
 public class StudentTestServlet extends HttpServlet{
 	
@@ -65,10 +72,15 @@ public class StudentTestServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
 		
+
+//  Test -- 菜单
+// Course -- 菜系
+// paper -- 订单
+// class -- 用户VIP分类
 		Student student = (Student)req.getSession().getAttribute("user");
 		String id = req.getParameter("testId");
 		
-		String courseId = req.getParameter("courseId");
+		String courseId = req.getParameter("courseId");//
 		Double scoreSum = 0.0;
 		Map test = testService.findStudentTestsById(student.getId(),Integer.valueOf(id));
 		

@@ -114,9 +114,9 @@
 				<center>
 					<div id="button">
 						
-							<button class="ui positive button" type="submit" name="button" id="publishButton"> <i class="icon send"></i>发布试卷</button>
+							<button class="ui positive button" type="submit" name="button" id="publishButton"> <i class="icon send"></i>发布菜单</button>
 		
-							<button  style="display:none;"  id="changeButton" name="changeButton" class="ui red button" onclick="changeFunc();">删除选中题目</button>
+							<button  style="display:none;"  id="changeButton" name="changeButton" class="ui red button" onclick="changeFunc();">删除选中菜品</button>
 					</div>
 					
 				</center>

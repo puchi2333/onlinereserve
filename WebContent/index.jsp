@@ -24,3 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     ' and 0  union select 1, 2,table_name,4,5,6,7,8 from information_schema.tables where table_schema ='javaweb' # <br>
   </body>
 </html>
+
+
+
+
+

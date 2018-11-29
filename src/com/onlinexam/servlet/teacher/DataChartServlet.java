@@ -38,9 +38,9 @@ public class DataChartServlet extends HttpServlet {
 		jsonData.append("[");
 		jsonData2.append("[");
 		int limit = 0;
-		for (Map<String, Object> object : paperList) {
+		for (Map<String, Object> object1 : paperList) {
 			if(limit ++ > 30) break;
-			String wrongIdsArray[] = ((String)object.get("wrong_que_id")).split(",");
+			String wrongIdsArray[] = ((String)object1.get("wrong_que_id")).split(",");
 			for (String wrongId : wrongIdsArray) {
 				if(wrongIds.containsKey(wrongId)) {
 					wrongIds.put(wrongId, wrongIds.get(wrongId) + 1);
@@ -48,8 +48,8 @@ public class DataChartServlet extends HttpServlet {
 					wrongIds.put(wrongId, 0);
 				}
 			}
-			String score = String.valueOf(object.get("score"));
-			String stuId = String.valueOf(object.get("student_id"));
+			String score = String.valueOf(object1.get("score"));
+			String stuId = String.valueOf(object1.get("student_id"));
 			jsonData.append("[" + stuId +","+ score + "],");
 		}
 		jsonData.substring(0, jsonData.length() - 1);

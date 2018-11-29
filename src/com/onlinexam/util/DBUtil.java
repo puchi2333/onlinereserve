@@ -356,6 +356,7 @@ public class DBUtil {
 			}
 			//= pstmt.setObject(i + 1, paramList[i]);
 		}
+		System.out.println(pstmt);
 		return;
 	}
 

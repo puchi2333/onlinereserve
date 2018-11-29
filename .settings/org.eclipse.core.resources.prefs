@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+encoding//WebContent/login.jsp=UTF-8
+encoding//WebContent/loginerror/loginerror.jsp=UTF-8
+encoding//WebContent/manager/mmain.jsp=UTF-8
+encoding//WebContent/manager/mtop.jsp=UTF-8
+encoding//WebContent/manager/schedulemanage.jsp=UTF-8
+encoding//WebContent/usernotfound.jsp=UTF-8
+encoding//src/com/onlinexam/util/Department.java=UTF-8
+encoding/<project>=UTF-8

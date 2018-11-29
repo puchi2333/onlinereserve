@@ -30,8 +30,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="layui-main">
 	<a class="" style="position :absolute; left:00%; top:10px;"><img src="<%=path%>/img/logo.png" style="width:250px;height:40px"></img></a>
 	<ul class="layui-nav">
-  <li class="layui-nav-item layui-this"><a href="<%=path%>/recentTestServlet" target="mainFrame"><i class="fa fa-cogs"></i><span>近期考试</span></a></li>
-  <li class="layui-nav-item "> <a href="<%=path%>/pastTestServlet" target="mainFrame"><i class="fa fa-cogs"></i><span>以往考试</span></a></li>
+  <li class="layui-nav-item layui-this"><a href="<%=path%>/recentTestServlet" target="mainFrame"><i class="fa fa-cogs"></i><span>可选择的菜单</span></a></li>
+  <li class="layui-nav-item "> <a href="<%=path%>/pastTestServlet" target="mainFrame"><i class="fa fa-cogs"></i><span>以往订单</span></a></li>
   <li class="layui-nav-item" lay-unselect="">
     <a href="javascript:;"><img src="http://t.cn/RCzsdCq" class="layui-nav-img"><font >${ sessionScope.user.name}</font> </a>
     <dl class="layui-nav-child">

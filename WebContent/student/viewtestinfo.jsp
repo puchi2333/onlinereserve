@@ -85,12 +85,7 @@ p {
 
 			<p class="text"></p>
 			<p>&nbsp;</p>
-			<label>
-				<center>
-					<button class="ui blue button" type="submit" name="button" id="button" class="btn_grey"
-						value="" >返回</button>
-				</center>
-			</label>
+
 			  </div>
 			</fieldset>
 		</form>

@@ -1,18 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-		<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+		
 		<%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title> 已提交的订单</title>
+	<title>订单查询</title>
 	<script src="<%=path%>/js/jquery.js"> </script>
 	<script src="<%=path%>/layui/layui.js"></script>
 	<script src="<%=path %>/layer/layer.js"></script>
@@ -24,7 +25,7 @@
 <body>
 	<fieldset class="layui-elem-field layui-field-title">
 		<legend>
-			<b>${user.name}</b>，已提交订单</legend>
+			<b>${user.name}</b>，以往订单查询</legend>
 	</fieldset>
 
 	<div class="search" style="position:absolute; right:30px;">
@@ -43,7 +44,6 @@
 
 
 			<tr align="center">
-				<td>订单编号</td>
 				<td>
 					<b>菜系</b>
 				</td>
@@ -64,20 +64,18 @@
 			<c:forEach var="paper" items="${paperList}">
 			
 				<tr align="center">
-				<td id = "paper_${paper.id} ">${paper.id}</td>
 					<td>${paper.courseName}</td>
 					<td><a href="<%=path%>/testInfoServlet?testId=${paper.test_id}&paperId=${paper.id}"> ${paper.testName}</a></td>
 					<td>${paper.test_time}</td>
 					<td>${paper.sub_time}</td>
 					<td>${paper.score}</td>
 					<c:if test="${paper.visited == true}"> <td>已接单</td></c:if>
-					<c:if test="${paper.visited == false}"> 
+					<c:if test="${paper.visited == false}"> <td>
+						<div>
+						<a href = "<%=path%>/confirmOrderServlet?testId=${paper.id}" >确认接单</a>
+						</div>
 						
-						 
-	
-						 <td><a class="ui positive right labeled icon button"  href="<%=path%>/acceptServlet?testId=${paper.test_id}&paperId=${paper.id}"> 接单</a>
-						 </td>
-					 </c:if>
+					</td></c:if>
 				</tr>
 			</c:forEach>
 		</table>
@@ -85,12 +83,6 @@
 
 </body>
 <script>
-function accpect(id){
-	
-}
-
-
-
 function showMsg(){
 	console.log("shw");
 	layer.confirm('确定要退出用户吗？', {

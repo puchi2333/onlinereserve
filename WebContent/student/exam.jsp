@@ -57,26 +57,7 @@
 </head>
 
 <body onselectstart="return false">
-	<script language="JavaScript">
-			$(document).ready(function(){ 
-			layer.open({
-						type: 1
-						,title: false //不显示标题栏
-						,closeBtn: false
-						,area: '300px;'
-						,shade: 0.8
-						,id: 'LAY_layuipro' //设定一个id，防止重复弹出
-						,resize: false
-						,btn: ['确定']
-						,btnAlign: 'c'
-						,moveType: 1 //拖拽模式，0或者1
-						,content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">考试期间禁止刷新页面，否则后果自负</div>'
-						
-					
-				　　}); 
-			});
 
-	</script>
 	<h1>
 		<center>${test.name}</center>
 	</h1>
@@ -149,7 +130,7 @@
 							function update() {
 								//以下是倒计时实现方式
 								if (min == 9 && sec == 59) {
-									alert("还剩10分钟，请抓紧时间答卷！");
+									alert("还剩10分钟，请抓紧时间选择！");
 								} //当时间到35的时候就提示还有十分钟
 								if (min == 0 && sec == 0) {
 									window.tijiao=true;
