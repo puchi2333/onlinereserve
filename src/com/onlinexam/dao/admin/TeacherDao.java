@@ -16,7 +16,7 @@ public class TeacherDao implements ITeacherDao{
 		if (!"".equals(name) ) {
 			sql += " where name like" + " \"%" + name + "%\"";
 		}
-		System.out.println(sql);
+
 		List teaList = new ArrayList();
 		try {
 			teaList = dbUtil.getQueryList(sql);

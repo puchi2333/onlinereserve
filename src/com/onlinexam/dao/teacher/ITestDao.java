@@ -20,4 +20,6 @@ public interface ITestDao {
 	public Map<String, Object> findTestById(int id, int teaId) ;
 	public Map<String, Object> findStudentTestsById(int studentid,int testid);
 	public List<Map<String,Object>> getTestByStudent(int id,String currData);
+
+	Map<String, Object> findStudentPapersById(int studentid, int testid);
 }

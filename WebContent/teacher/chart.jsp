@@ -15,13 +15,13 @@
 </head>
 <body>
 <fieldset class="layui-elem-field">
-  <legend>成绩分布散点图</legend>
+  <legend>销量分布散点图</legend>
   <div class="layui-field-box">
     <div id="main" style="width: 85%;height:400px;float:none;"></div>
   </div>
 </fieldset>
 <fieldset class="layui-elem-field">
-  <legend>错题统计折线图与直方图</legend>
+  <legend>销量统计折线图与直方图</legend>
   <div class="layui-field-box">
     <div id="main2" style="width: 600px;height:400px; float:left;"></div>
 <div id="main3" style="width: 600px;height:400px; float:left;"></div>
@@ -38,7 +38,7 @@ option = {
 	            type: 'line',
 	            label: {
 	                backgroundColor: '#283b56',
-	                formatter:'学号:{value}'
+	                formatter:'用户ID:{value}'
 	            }
 	        }
 	    },
@@ -51,10 +51,10 @@ option = {
 	        }
 	    },
 	  
-	    xAxis: {type: 'category',name:"学号"},
-	    yAxis: {'max':100,name:'成绩'},
+	    xAxis: {type: 'category',name:"用户ID"},
+	    yAxis: {'max':100,name:'成交价'},
 	    series: [{
-	    		name:"成绩",
+	    		name:"成交价",
 	        symbolSize: 25,
 	        data: ${data},
 	        type: 'scatter'
@@ -72,7 +72,7 @@ option = {
 	            type: 'line',
 	            label: {
 	                backgroundColor: '#283b56',
-	                formatter:"学号：{a}<br/> 成绩:{b}"
+	                formatter:"用户ID：{a}<br/> 成交价:{b}"
 	            }
 	    
 	        }
@@ -90,8 +90,8 @@ option = {
 	        start: 0,
 	        end: 100
 	    },
-	    xAxis: {type: 'category',name:"学号"},
-	    yAxis: {'max':100,name:'成绩'},
+	    xAxis: {type: 'category',name:"用户ID"},
+	    yAxis: {'max':100,name:'成交价'},
 	    series: [{
 	        symbolSize: 20,
 	        data: ${data},
@@ -109,7 +109,7 @@ option = {
 	            type: 'cross',
 	            label: {
 	                backgroundColor: '#283b56',
-	                formatter:'题号：{value}'
+	                formatter:'菜品号：{value}'
 	            }
 	        }
 	    },
@@ -128,15 +128,15 @@ option = {
 	        end: 100
 	    },
 	    xAxis: {
-	    		name:'错题次数',
+	    		name:'销售次数',
 	        type: 'category'
 	    },
 	    yAxis: {
-	    	name:'题号',
+	    	name:'菜品号',
 	        type: 'value'
 	    },
 	    series: [{
-	    		name:'错题次数',
+	    		name:'销售次数',
 	        data: ${data1},
 	        type: 'bar'
 	    }]
@@ -153,7 +153,7 @@ option = {
 	            type: 'cross',
 	            label: {
 	                backgroundColor: '#283b56',
-	                formatter:'题号：{value}'
+	                formatter:'菜品号：{value}'
 	            }
 	        }
 	    },
@@ -172,15 +172,15 @@ option = {
 	        end: 100
 	    },
 	    xAxis: {
-	    		name:'错题次数',
+	    		name:'销售次数',
 	        type: 'category'
 	    },
 	    yAxis: {
-	    	name:'题号',
+	    	name:'菜品号',
 	        type: 'value'
 	    },
 	    series: [{
-	    		name:'错题次数',
+	    		name:'销售次数',
 	        data: ${data1},
 	        type: 'line'
 	    }]

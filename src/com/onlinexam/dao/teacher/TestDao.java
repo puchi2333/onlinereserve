@@ -51,7 +51,18 @@ public class TestDao implements ITestDao {
 
 	@Override
 	public Map<String, Object> findStudentTestsById(int studentid, int testid) {
-		String sql = "SELECT t.*,GROUP_CONCAT(sc.name) as classNames,cs.`name` as courseName FROM  student s,test t,course cs,class sc WHERE t.id=? AND FIND_IN_SET(sc.id,t.class_ids)  AND s.id = ? AND cs.id = t.course_id";
+		String sql = "SELECT t.*,GROUP_CONCAT(sc.name) as classNames,cs.`name` as courseName FROM  student s,test t,course cs,class sc WHERE t.id=?  AND FIND_IN_SET(sc.id,t.class_ids)  AND s.id = ? AND cs.id = t.course_id";
+		try {
+			return dbUtil.getObject(sql, new Object[] {testid, studentid});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return new HashMap<>();
+		}
+	}
+	@Override
+	public Map<String, Object> findStudentPapersById(int studentid, int testid) {
+		String sql = "SELECT t.*,GROUP_CONCAT(sc.name) as classNames,cs.`name` as courseName FROM papers p, student s,test t,course cs,class sc WHERE p.id=? and t.id=p.test_id AND FIND_IN_SET(sc.id,t.class_ids)  AND s.id = ? AND cs.id = t.course_id";
 		try {
 			return dbUtil.getObject(sql, new Object[] {testid, studentid});
 		} catch (Exception e) {
@@ -76,5 +87,7 @@ public class TestDao implements ITestDao {
 
 		
 	}
+
+
 
 }

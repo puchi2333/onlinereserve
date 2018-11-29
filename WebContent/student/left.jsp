@@ -25,8 +25,8 @@ body{
 <tr>
 <td valign="top">
     <ul>
-        <li><a href='<%=path %>/recentTestServlet' target="mainFrame">近期考试</a></li>
-        <li><a href='<%=path %>/pastTestServlet' target="mainFrame">以往考试</a></li>
+        <li><a href='<%=path %>/recentTestServlet' target="mainFrame">可选择菜单</a></li>
+        <li><a href='<%=path %>/pastTestServlet' target="mainFrame">以往订单</a></li>
         <li><a href="<%=path %>/logoutServlet" target="_parent" onclick="javascript: return confirm('确认退出用户吗？');">退出用户</a></li>
     </ul>
     </td>

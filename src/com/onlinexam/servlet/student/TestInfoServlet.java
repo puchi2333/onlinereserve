@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.onlinexam.po.Question;
 import com.onlinexam.po.Student;
+import com.onlinexam.po.Teacher;
 import com.onlinexam.service.teacher.PaperService;
 import com.onlinexam.service.teacher.QuestionService;
 import com.onlinexam.service.teacher.TestService;
@@ -27,13 +28,21 @@ public class TestInfoServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String testId = req.getParameter("testId");
-		Student student = (Student)req.getSession().getAttribute("user");
-		
-		Map<String, Object>testMap = testService.findStudentTestsById(student.getId(), Integer.valueOf(testId));
+		String PaperId = req.getParameter("paperId");
+		System.out.println(PaperId);
+		Object user = req.getSession().getAttribute("user");
+		int userId = 0;
+		try {
+			Teacher teacher = (Teacher)user;
+			userId = teacher.getId();
+			} catch(Exception e){
+				Student teacher = (Student)user;
+				userId = teacher.getId();
+			}
+		Map<String, Object>testMap = testService.findStudentPapersById(userId, Integer.valueOf(PaperId));
 		List<Question> questionList = questionService.findQuestionByIds((String)testMap.get("question_ids"));
-		List tmpPaperMap = paperService.getPaperByStudentId(student.getId(), Integer.valueOf(testId));
-		Map paperMap = (Map<String, Object>)tmpPaperMap.get(0);
+		Map paperMap = paperService.getPaperById(Integer.valueOf(PaperId));
+		//Map paperMap = (Map<String, Object>)tmpPaperMap.get(0);
 		List<Map<String, Object>> mapList = new ArrayList<>();
 		String wrongIds = (String)paperMap.get("wrong_que_id");
 		String wrongIdsArray[] = wrongIds.split(",");

@@ -28,6 +28,9 @@ public class TestService implements ITestService {
 	public Map<String, Object> findStudentTestsById(int studentid, int testid) {
 		return testDao.findStudentTestsById(studentid, testid);
 	}
+	public Map<String, Object> findStudentPapersById(int studentid, int testid) {
+		return testDao.findStudentPapersById(studentid, testid);
+	}
 
 	@Override
 	public List<Map<String, Object>> getTestByStudent(int id, String currData) {

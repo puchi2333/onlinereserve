@@ -28,17 +28,18 @@ public class PapersDao implements IPapersDao {
 
 	@Override
 	public List getPaperByTeacherId(int studentId) {
-		String sql = "select * from papers where student_id=? ";
+		//"select p.* c.name as courseName,t.name as testName from papers p , course c,test t where p.student_id=? and p.course_id = c.id and p.test_id = t.id 
+		String sql = "select p.* ,c.name as courseName,t.name as testName from papers p , course c,test t where p.student_id=? and p.course_id = c.id and p.test_id = t.id" ;
 		try {
 			return dbUtil.getQueryList(sql, new Object[] {studentId});
 		} catch (Exception e) {
 			return new ArrayList<>();
 		}
 	}
-	public List getPaperByStudentId(int studentId, int testId) {
-		String sql = "select * from papers where student_id=? and test_id=?";
+	public List getPaperById(int a,int paperId) {
+		String sql = "select * from papers where  id=?";
 		try {
-			return dbUtil.getQueryList(sql, new Object[] {studentId, testId});
+			return dbUtil.getQueryList(sql, new Object[] { paperId});
 		} catch (Exception e) {
 			return new ArrayList<>();
 		}
@@ -89,7 +90,7 @@ public class PapersDao implements IPapersDao {
 
 	@Override
 	public Map<String, Object> getPaperById(int paperId) {
-		String sql = "Select * from papers where test_id = ?";
+		String sql = "Select * from papers where id = ?";
 		try {
 			return dbUtil.getObject(sql, new Object[] {paperId});
 		} catch (Exception e) {
@@ -109,6 +110,18 @@ public class PapersDao implements IPapersDao {
 			e.printStackTrace();
 			return new ArrayList<>();
 		}
+	}
+
+	@Override
+	public List getPaperByTeacherId(int studentId, int testId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List getPaperByStudentId(int studentId, int testId) {
+		
+		return null;
 	}
 
 }

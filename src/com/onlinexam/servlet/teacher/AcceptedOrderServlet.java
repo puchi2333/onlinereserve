@@ -19,7 +19,7 @@ public class AcceptedOrderServlet extends HttpServlet{
 	PaperService paperService = new PaperService();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		super.doGet(req, resp);
+		
 		
 
 		req.setCharacterEncoding("UTF-8");
@@ -27,15 +27,15 @@ public class AcceptedOrderServlet extends HttpServlet{
 		int studentId = student.getId();
 		String courseName = req.getParameter("courseName");
 		if(courseName == null) courseName = "";
-		List paperList = paperService.getPaperByStudentId(studentId, courseName);
+		List paperList = paperService.getPaperByTeacherId(studentId);
 		req.setAttribute("paperList", paperList);
-		req.getRequestDispatcher("teacher/recentorder.jsp").forward(req, resp);
+		req.getRequestDispatcher("teacher/postedorder.jsp").forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		super.doPost(req, resp);
+		doGet(req,resp);
 	}
 	
 }

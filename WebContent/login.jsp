@@ -76,9 +76,9 @@
 						<div class="filter-box" >
 
 							<select name="role" class="ui dropdown" id="dropdown" style="background: rgba(19, 35, 47, 0.9);">
-								<option value="admin" >管理员</option>
-								<option value="student">学生</option>
-								<option value="teacher" selected>教师</option>
+							
+								<option value="student">用户</option>
+								<option value="teacher" selected>老板</option>
 
 							</select>
 						</div>
@@ -212,9 +212,7 @@ function check() {
 		},
 		success : function() {
 			window.verCode = 1;
-			// alert(verCode)
-			// alert('验证成功，添加你自己的代码！');
-			//......后续操作
+
 		},
 		error : function() {
 			window.verCode = 0;
